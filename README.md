@@ -42,6 +42,19 @@ Project ini dibuat sebagai **technical test / assessment** untuk mengelola data 
 
 ---
 
+## Database Setup
+
+1. Buat database PostgreSQL
+2. Jalankan DDL di folder `sql/`
+3. Jalankan file seeder untuk initial data
+
+```bash
+psql -U postgres -d crm_db -f sql/schema.sql
+psql -U postgres -d crm_db -f sql/seeder.sql
+```
+
+---
+
 ## Database Schema
 
 ### **Membership**
