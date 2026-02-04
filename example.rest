@@ -1,0 +1,71 @@
+####### LOGIN #######
+POST http://localhost:8888/api/v1/auth/login
+Content-Type: application/json
+
+{
+  "username": "admin@mail.com",
+  "password": "password123"
+}
+
+###### MEMBERSHIP #######
+
+### CREATE
+POST http://localhost:8888/api/v1/memberships
+Authorization: Bearer your_access_token
+Content-Type: application/json
+
+{
+  "name": "Restu",
+  "password": "password123",
+  "address": "Jakarta"
+}
+
+
+### CREATE CONTACT EMAIL
+POST http://localhost:8888/api/v1/memberships/2/contacts
+Authorization: Bearer your_access_token
+Content-Type: application/json
+
+{
+  "contact_type": "email",
+  "contact_value": "restu@mail.com"
+}
+
+### CREATE CONTACT PHONE
+POST http://localhost:8888/api/v1/memberships/2/contacts
+Authorization: Bearer your_access_token
+Content-Type: application/json
+
+{
+  "contact_type": "phone",
+  "contact_value": "08123456789"
+}
+
+
+#### GET MEMBERSHIP WITH CONTACT
+GET http://localhost:8888/api/v1/memberships/with-contacts
+Authorization: Bearer your_access_token
+
+### UPDATE CONTACT
+PUT http://localhost:8888/api/v1/contacts/4
+Authorization: Bearer your_access_token
+Content-Type: application/json
+
+{
+  "contact_value": "restu.updated@mail.com",
+  "is_active": false
+}
+
+### UPDATE CONTACT
+PUT http://localhost:8888/api/v1/contacts/6
+Authorization: Bearer your_access_token
+Content-Type: application/json
+
+{
+  "contact_value": "08123456789",
+  "is_active": true
+}
+
+###
+GET http://localhost:8888/api/v1/memberships/detail/1
+Authorization: Bearer your_access_token
